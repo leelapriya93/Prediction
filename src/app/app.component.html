@@ -1,0 +1,39 @@
+<div class='container'>
+  <h3>Risk Factor Prediction</h3>
+    <form #PredictionForm = "ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for='dob'>Date of Birth</label>
+        <input type="date" name="dob" #dob='ngModel' [(ngModel)]='predictForm.dob'>
+      </div>
+      <div class="form-group">
+        <label for='gender'>Gender</label>
+        <input type="radio" name="gender" value="0" #gender='ngModel' [(ngModel)]='predictForm.gender'> Male
+        <input type="radio" name="gender" value="1" #gender='ngModel' [(ngModel)]='predictForm.gender'> Female<br>
+      </div>
+      <div class="form-group">
+          <label for='MaritalStatus'>Marital Status</label>
+          <select name="MaritalStatus" #marital='ngModel' [(ngModel)]='predictForm.maritalStatus'>
+              <option value="1">Divorced</option>
+              <option value="2">Married</option>
+              <option value="3">Single</option>
+              <option value="4">Widow</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for='location'>Location</label>
+        <select name='location' #loc ='ngModel' [(ngModel)]='predictForm.location'>
+            <option value="CA">California</option>
+            <option value="TX">Texas</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type='submit' class='btn btn-primary'>Predict</button>
+      </div>
+    </form>
+    <div>
+     <h3> <label>Risk Factor : {{predictionResult.Prediction}}</label> 
+     </h3>
+    </div>
+</div>
+
+{{PredictionForm.value | json}}
