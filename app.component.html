@@ -1,0 +1,48 @@
+  <div class='container'>
+    <div class= " jumbotron">
+    
+    <form #PredictionForm = "ngForm" (ngSubmit)="onSubmit()" > 
+      <fieldset>
+          <legend class="text-info">Risk Factor Prediction</legend>
+      <div class="form-group">
+        <label for='dob'>Date of Birth</label> 
+        <input type="date" class="form-control" name="dob" #dob='ngModel' [(ngModel)]='predictForm.dob' required>
+      </div>
+      
+      <div class="form-group">
+        <label for='gender'>Gender</label> &nbsp;&nbsp;
+        <input type="radio" name="gender" value="0" #gender='ngModel' [(ngModel)]='predictForm.gender'> Male
+        <input type="radio" name="gender" value="1" #gender='ngModel' [(ngModel)]='predictForm.gender'> Female<br>
+      </div>
+      <div class="form-group">
+          <label for='MaritalStatus'>Marital Status</label> &nbsp;&nbsp;
+          <select name="MaritalStatus" #marital='ngModel' [(ngModel)]='predictForm.maritalStatus' class="form-control" required>
+              <option value="1">Divorced</option>
+              <option value="2">Married</option>
+              <option value="3">Single</option>
+              <option value="4">Widow</option>
+          </select>
+      </div>
+      
+      <div class="form-group">
+        <label for='location'>Location</label> &nbsp;&nbsp;
+        <select name='location' #loc ='ngModel' [(ngModel)]='predictForm.location' class="form-control" placeholder="Select">
+            <option value="CA">California</option>
+            <option value="TX">Texas</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type='submit' class='btn btn-primary' [disabled]='!PredictionForm.valid'>Predict</button>
+      </div>
+      </fieldset>
+    </form>
+    </div>
+    </div>
+   <!-- <div>
+     <h3> <label>Risk Factor : {{predictionResult.Prediction}}</label> 
+     </h3>
+    </div>
+</div>
+
+{{PredictionForm.value | json}}
+-->
